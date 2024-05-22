@@ -1,0 +1,105 @@
+\def\reporttitle{Report Title}
+\def\courseId{XY-ABC}
+\def\courseName{Course Name}
+\def\courseCoordinator{Firstname Lastname}
+\def\dueDate{January 1, 2035}
+\def\wordCount{Approx. 10 600}
+\def\byGroup{
+    By Group X in \courseId, which is:
+}
+\def\groupMembers{
+    Person Individual (\href{mailto:person@uia.no}{person@uia.no}) \linebreak
+    Other Person (\href{mailto:other@uia.no}{other@uia.no}) \linebreak
+}
+\def\headerColor{gray} % e.g. gray, black, etc. For report title in header.
+
+% Document-setup (Makes document A4, use 12pt font, following APA-7 citation)
+\documentclass[12pt, a4paper, doc, biblatex, english]{apa7}
+
+% Import packages
+\input{template/packages}
+
+% Set path to graphics
+\graphicspath{ {./img/} }
+
+% Set up various other things, such as preparing \frontmatter and setting header text
+\input{template/othersetup}
+
+% Reference-files, add more as necessary
+\addbibresource{ref/sources.bib}
+
+% Starts the document
+\begin{document}
+
+% Include the frontpage
+\input{template/frontpage}
+
+% Start the front matter (Roman Numerals), and set the new paragraph indent
+\frontmatter
+\setlength{\parindent}{0pt}
+
+% Abstract & Executive summary, (un)comment if added/needed
+\newpage
+\section*{Abstract}
+\label{kap:Abstract}
+\subfile{chapters/0-abstract}
+%\newpage
+%\section*{Executive Summary}
+%\label{kap:ExecutiveSummary}
+%\subfile{chapters/0-executive-summary}
+
+% Table of Contents, Table of Figures, Table of Tables
+\newpage
+\renewcommand{\contentsname}{Table of Contents}
+\renewcommand{\listfigurename}{Table of Figures}
+\renewcommand{\listtablename}{Table of Tables}
+\tableofcontents
+\listoffigures
+\listoftables
+
+% Main text begins, switch to Arabic numbers
+\newpage
+\mainmatter
+
+%Chapter 1
+\section{Introduction}
+\label{kap:Introduction}
+\subfile{chapters/1-introduction}
+
+% Chapter 2, etc.
+\newpage
+\section{Background}
+\label{kap:Background}
+\subfile{chapters/2-background}
+
+% Add more sections/files as needed
+
+%Text ends here, print sources
+\newpage
+\renewcommand\refname{References}
+\printbibliography
+
+
+%Prepare Appendix sections
+\newpage
+
+% Set up things for appendices, such as  header text
+\input{template/appendixprepare}
+\begin{appendices}
+
+% Appendix begins, add as many appendices as needed:
+\newpage
+\section{Appendix Example}
+\label{Appendix:Example}
+\vfill
+\begin{adjustwidth}{3cm}{3cm}
+This appendix contains some example text.
+\end{adjustwidth}
+\vfill
+\setcounter{figure}{0}
+\newpage
+\subfile{appendix/AppendixExample.tex}
+
+\end{appendices}
+
+\end{document}

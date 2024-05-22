@@ -1,0 +1,61 @@
+% Front page
+\begin{titlepage}
+    \begin{center}
+        % The UiA Logo
+        \includegraphics[width=0.4\textwidth]{img/uia/uia-horisontal-med-navn-Positiv.png}
+
+        \vfill
+        
+        % The Title
+        \Huge
+        \textbf{\reporttitle}
+
+        \vspace{20px}
+
+        % Group number and members
+        \Large
+        \textbf{\underline{\byGroup} \linebreak
+        \normalsize
+        \groupMembers
+        }
+
+        \vfill
+
+        % Box containing course and delivery information
+        \normalsize 
+        \bgroup
+        \def\arraystretch{1.5}%  1 is the default, change whatever you need
+        \begin{tabular}{ | p{7.0cm} | p{7.0cm} | }
+            \hline
+            \textbf{Course ID} & \courseId  \\
+            \hline
+            \textbf{Course Name} & \courseName \\
+            \hline
+            \textbf{Course Coordinator} & \courseCoordinator \\
+            \hline
+            \textbf{Due Date} & \dueDate \\
+            \hline
+            \textbf{Word count} & \wordCount \\
+            \hline
+        \end{tabular}
+        \egroup
+
+        \vfill
+
+        % Box containing questions regarding the delivery
+        \bgroup
+        \def\arraystretch{1.5}%  1 is the default, change whatever you need
+        \begin{tabular}{ | p{12.0cm} | p{0.8cm} | p{0.8cm} |}
+            \hline
+             & \textbf{Yes} & \textbf{No}\\
+            \hline
+            We confirm that we do not cite or use others work unless this is listed, and that all references are listed in the bibliography. & \CheckedBox & \Square \\
+            \hline
+            Can the submission be used for teaching purposes? & \CheckedBox & \Square \\
+            \hline
+            We confirm that everyone in the group has contributed to the submission. & \CheckedBox & \Square \\
+            \hline
+        \end{tabular}
+        \egroup        
+    \end{center}
+\end{titlepage}

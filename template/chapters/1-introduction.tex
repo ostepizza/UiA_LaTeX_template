@@ -1,0 +1,27 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../img/}}}
+
+\begin{document}
+
+%text go here
+Here's some example text \parencite[p. 1]{AuthorYear}, as well as a table.
+
+\begin{table}[htbp]
+  \centering
+  \begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+    \thead{Example Content} & \thead{Good content?} \\
+    \hline
+    Example & No \\
+    Lorem ipsum dolor sit amet... & No \\
+    Actual text that makes sense & Yes \\
+    \hline
+  \end{tabularx}
+  \caption{Example Table displaying what Example Content is Good Content}
+  \label{tab:example}
+\end{table}
+
+This is not good example text, as can be seen in Table \ref{tab:example}.
+
+
+\end{document}

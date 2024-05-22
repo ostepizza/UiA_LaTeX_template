@@ -1,0 +1,61 @@
+% Centers the margins
+\textwidth=6.25in
+\textheight=9in
+\oddsidemargin=0.0pt
+\evensidemargin=0.0pt
+
+% Sets up figure and table captions
+\DeclareCaptionLabelSeparator*{spaced}{\\[2ex]}
+\captionsetup[figure]{labelsep=period,labelfont=it,justification=centering,
+  singlelinecheck=false,font=doublespacing}
+\captionsetup[table]{labelsep=period,labelfont=it,justification=centering,
+  singlelinecheck=false,font=doublespacing}
+
+% Makes URLs work, and blue
+\usepackage{hyperref}
+\usepackage{xurl}
+\hypersetup{colorlinks=true, allcolors=black, urlcolor=blue,}
+
+% Adds subfiles package
+\usepackage{subfiles} % Best loaded last in the preamble
+
+% Sets the header text
+\pagestyle{fancy}
+\lhead{}
+\chead{\color{\headerColor}\normalsize{\reporttitle}}
+\rhead{}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
+
+% Puts section titles to the left and adds numbers
+\patchcmd{\section}% <cmd>
+  {\centering}% <search>
+  {\raggedright}% <replace>
+  {}{}% <success><failure>
+\setcounter{secnumdepth}{3}
+\setlength{\parskip}{1em}
+
+% Sets the section titles font size
+\titleformat*{\section}{\LARGE\bfseries}
+\titleformat*{\subsection}{\Large\bfseries}
+\titleformat*{\subsubsection}{\large\bfseries}
+\titleformat*{\paragraph}{\large\bfseries}
+\titlespacing\section{0pt}{20pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{20pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{20pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% Sets page numbers before main text to roman numerals
+\def\frontmatter{%
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+    \renewcommand{\thesection}{\Roman{section}}
+}%
+
+% Sets page numbers in main text to arabic numbers
+\def\mainmatter{%
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \setcounter{section}{0}
+    \renewcommand{\thesection}{\arabic{section}}
+}%
